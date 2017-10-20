@@ -23,8 +23,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
-    func retrieveMoviesByTerm(searchTerm: String) {
-        let url = "https://www.omdbapi.com/?s=\(searchTerm)&type=movie&r=json"
+    func retrieveMoviesByTerm(searchTerm: String) {      
+        let url = "https://api.themoviedb.org/3/search/movie?api_key=2d2018b37235bcbfc306593e9988b814&language=en&query=\(searchTerm)"
         HTTPHandler.getJson(urlString: url, completionHandler: parseDataIntoMovies)
     }
     
@@ -32,7 +32,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         if let data = data {
             let object = JSONParser.parse(data: data)
             if let object = object {
-                self.searchResults = MovieDataProcessor.mapJsonToMovies(object: object, moviesKey: "Search")
+                self.searchResults = MovieDataProcessor.mapJsonToMovies(object: object, moviesKey: "results")
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

@@ -50,11 +50,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         mainTableView.reloadData()
         if favoriteMovies.count == 0 {
             favoriteMovies.append(Movie (
-                id: "tt0372784",
-                title: "Batman Begins",
-                year: "2005",
-                imageUrl: "https://images-na.ssl-images-amazon.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_.jpg",
-                plot: "Caper"))
+                id: "679",
+                title: "Aliens",
+                year: "1986-07-18",
+                imageUrl: "https://image.tmdb.org/t/p/w300/nORMXEkYEbzkU5WkMWMgRDJwjSZ.jpg",
+                plot: "When Ripley's lifepod is found by a salvage crew over 50 years later, she finds that terra-formers are on the very planet they found the alien species. When the company sends a family of colonists out to investigate her story, all contact is lost with the planet and colonists. They enlist Ripley and the colonial marines to return and search for answers."))
         }
         super.viewWillAppear(animated)
     }

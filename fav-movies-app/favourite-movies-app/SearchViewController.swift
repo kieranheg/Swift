@@ -13,6 +13,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet var searchText: UITextField!
     @IBOutlet var tableView: UITableView!
     
+    weak var delegate: ViewController!
+    
     var searchResults: [Movie] = []
     
     @IBAction func search (sender: UIButton) {
@@ -21,6 +23,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         if searchTerm.characters.count > 2 {
             retrieveMoviesByTerm(searchTerm: searchTerm)
         }
+    }
+    
+    @IBAction func addFav (sender: UIButton) {
+        self.delegate.favoriteMovies.append(searchResults[sender.tag])
     }
     
     func retrieveMoviesByTerm(searchTerm: String) {      
@@ -64,6 +70,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         moviecell.favButton.tag = idx
         moviecell.movieTitle?.text = searchResults[idx].title
         moviecell.movieYear?.text = searchResults[idx].year
+        moviecell.moviePlot?.text = searchResults[idx].plot
         
         displayMovieImage(idx, moviecell: moviecell)
         return moviecell

@@ -32,6 +32,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         moviecell.movieTitle?.text = favoriteMovies[idx].title
         moviecell.movieYear?.text = favoriteMovies[idx].year
+        moviecell.moviePlot?.text = favoriteMovies[idx].plot
         
         displayMovieImage(idx, moviecell: moviecell)
         return moviecell
